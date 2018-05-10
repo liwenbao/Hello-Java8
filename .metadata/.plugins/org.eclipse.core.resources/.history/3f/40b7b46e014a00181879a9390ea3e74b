@@ -1,0 +1,24 @@
+package thinkInJava.chapter4;
+
+public class Exercise5 {
+
+}
+
+class Chair{
+	static boolean gcrun = false , f = false;
+	static int created = 0 , finalized = 0;
+	int id;
+	
+	Chair(){
+		id = ++created;
+		if (id == 47) {
+			System.out.println("创建了第47个对象。");
+		}
+	}
+	
+	protected void finalize() {
+		if (!gcrun) {
+			gcrun = true;
+		}
+	}
+}

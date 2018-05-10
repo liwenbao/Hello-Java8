@@ -1,0 +1,34 @@
+package designpattern;
+
+public class DecoratorPattern {
+
+}
+
+interface Picture{
+	void draw();
+}
+
+class NormalPicture implements Picture{
+
+	@Override
+	public void draw() {
+		System.out.println("ªÊ÷∆Õº∆¨");
+	}
+	
+}
+
+class FrameedPicture implements Picture{
+	
+	private Picture innerPicture;
+	
+	public FrameedPicture(Picture inner) {
+		this.innerPicture = inner;
+	}
+
+	@Override
+	public void draw() {
+		this.innerPicture.draw();
+		System.out.println("ªÊ÷∆Õº∆¨");
+	}
+	
+}

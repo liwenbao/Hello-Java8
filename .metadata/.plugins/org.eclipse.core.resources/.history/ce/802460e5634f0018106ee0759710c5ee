@@ -1,0 +1,41 @@
+package designpattern;
+
+import java.util.ArrayList;
+
+/*
+ * 组合模式。是一个I并且包含很多I。多用来表示整体和部分的层次，形成树状关系。
+ */
+public class CompositePattern {
+
+}
+
+interface CalcNode {
+	Object calc();
+}
+
+class DataNode implements CalcNode{
+	
+	private Object val;
+	
+	public void setVal(Object val) {
+		this.val = val;
+	}
+	
+	@Override
+	public Object calc() {
+		return val;
+	}
+}
+
+class Expression implements CalcNode{
+	
+	private ArrayList<CalcNode> nodes;
+
+	@Override
+	public Object calc() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+

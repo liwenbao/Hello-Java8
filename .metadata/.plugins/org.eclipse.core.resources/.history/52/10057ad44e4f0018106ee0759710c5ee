@@ -1,0 +1,56 @@
+package designpattern;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+/*
+ * 过滤器模式
+ */
+public class FilterPattern {
+	public static void main(String[] args) {
+		HttpServletRequest s;
+	}
+}
+
+class HttpRequest{
+	private String uID;
+	private String appID;
+	private Date timeStamp;
+	
+	public String getuID() {
+		return uID;
+	}
+	public void setuID(String uID) {
+		this.uID = uID;
+	}
+	public String getAppID() {
+		return appID;
+	}
+	public void setAppID(String appID) {
+		this.appID = appID;
+	}
+	public Date getTimeStamp() {
+		return timeStamp;
+	}
+	public void setTimeStamp(Date timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+	public String toString() {
+		return String.format("uID:{0};appID:{1};timeStamp:{2};", this.uID, this.appID, this.timeStamp);
+	}
+}
+
+interface HttpRequestFilter{
+	boolean Filter(HttpRequest r);
+}
+
+class HttpRequestRouter{
+	private ArrayList<HttpRequestFilter> filters;
+	
+	public void RouteRequest(HttpRequest r) {
+		if (filters.stream().anyMatch(f->!f.Filter(r))){
+			return;
+		}
+		System.out.println("路由请求 " + r);
+	}
+}

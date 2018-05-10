@@ -1,0 +1,51 @@
+package designpattern;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+/*
+ * 代理模式
+ * 与装饰器模式从结构上看十分相似，区别在于使用目的。装饰器一般为了被装饰对象添加新功能，代理一般用于控制被代理对象的行为。
+ */
+public class ProxyPattern {
+	public static void main(String[] args) {
+		HttpServer server = new HttpServerProxy();
+		server.get("/data");
+		server.get("/data");
+		server.get("/data");
+		server.get("/data/1");
+	}
+}
+
+interface HttpServer{
+	String get(String resource);
+}
+
+class RealHttpServer implements HttpServer{
+	
+	@Override
+	public String get(String resource) {
+		System.out.println("实际响应HTTP请求，请求资源为：" + resource);
+		return "response";
+	}
+
+}
+
+class HttpServerProxy implements HttpServer{
+	
+	private ConcurrentHashMap<String, String> cachedRequest = new ConcurrentHashMap<String, String>();
+	
+	private RealHttpServer realServer = new RealHttpServer();
+	
+	@Override
+	public String get(String resource) {
+		String response = cachedRequest.get(resource);
+		if (resource != null) {
+			System.out.println("代理服务响应HTTP请求，请求资源为：" + resource);
+			return response;
+		}
+		response = realServer.get(resource);
+		cachedRequest.put(resource, response);
+		return response;
+	}
+	
+}

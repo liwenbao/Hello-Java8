@@ -1,0 +1,45 @@
+package designpattern;
+
+import java.util.Date;
+
+/*
+ * ¹ýÂËÆ÷Ä£Ê½
+ */
+public class FilterPattern {
+	public static void main(String[] args) {
+		HttpServletRequest s;
+	}
+}
+
+class HttpRequest{
+	private String uID;
+	private String appID;
+	private Date timeStamp;
+	
+	public String getuID() {
+		return uID;
+	}
+	public void setuID(String uID) {
+		this.uID = uID;
+	}
+	public String getAppID() {
+		return appID;
+	}
+	public void setAppID(String appID) {
+		this.appID = appID;
+	}
+	public Date getTimeStamp() {
+		return timeStamp;
+	}
+	public void setTimeStamp(Date timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+}
+
+interface HttpRequestFilter{
+	boolean Filter(HttpRequest);
+}
+
+class HttpRequestRouter{
+	private 
+}

@@ -1,0 +1,11 @@
+package function;
+
+public class Predicate {
+	public static void main(String[] args) {
+		PredicateTest<Integer> p1 = i -> i >= 0;
+	}
+	
+	void test(PredicateTest<Integer> predicate ) {
+		
+	}
+}

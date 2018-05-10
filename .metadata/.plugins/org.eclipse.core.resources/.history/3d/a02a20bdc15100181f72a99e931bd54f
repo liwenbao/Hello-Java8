@@ -1,0 +1,80 @@
+package designpattern;
+
+import java.util.Currency;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+
+/*
+ * 享元模式，即最轻量级模式
+ * 对于大量重复出现的对象，将部分状态分离到对象之外，从而共享对象，以节省内存开销。
+ * 使用场景：公式语法树中的函数对象。
+ */
+public class Flyweight {
+	public static void main(String[] args) {
+		Function function = FunctionFactory.getFunction("abs");
+		for(int i = 0; i < 10; i++) {
+			
+		}
+	}
+}
+
+interface Function{
+	String getName();
+	long calc(long...args);
+}
+
+class FunctionFactory{
+	
+	static ConcurrentHashMap<String, Function> FUNCTIONS = new ConcurrentHashMap<String, Function>();
+	
+	static Function getFunction(String funcName) throws Exception {
+		Function function = FUNCTIONS.get(funcName);
+		if (function == null) {
+			function = createFunciton(funcName);
+			FUNCTIONS.put(funcName, function);
+		}
+		return function;
+	}
+	
+	private static Function createFunciton(String funcName) throws Exception {
+		switch (funcName) {
+		case "abs":
+			return new Abs();
+		case "max":
+			return new Max();
+		default:
+			throw new Exception("unkown function name: " + funcName);
+		}
+	}
+}
+
+class Abs implements Function {
+	
+	@Override
+	public long calc(long...args) {
+		long args0 = args[0];
+		return Math.abs(args0);
+	}
+
+	@Override
+	public String getName() {
+		return "abs";
+	}
+	
+}
+
+class Max implements Function {
+	
+	@Override
+	public long calc(long...args) {
+		long args0 = args[0];
+		long args1 = args[1];
+		return Math.max(args0, args1);
+	}
+
+	@Override
+	public String getName() {
+		return "max";;
+	}
+	
+}

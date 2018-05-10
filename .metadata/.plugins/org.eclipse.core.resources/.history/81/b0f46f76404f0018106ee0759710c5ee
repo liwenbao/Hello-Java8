@@ -1,0 +1,14 @@
+package designpattern;
+
+/*
+ * 适配器模式
+ */
+public class AdatperPattern {
+
+}
+
+class Voltage220{
+	public void output() {
+		System.out.println("输出220V电压。");
+	}
+}

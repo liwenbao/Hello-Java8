@@ -1,0 +1,12 @@
+package collections;
+import java.util.*;
+import thinkInJava.tool.*;
+
+public class ListTest {
+	void useList(List<String> l) {
+		l.set(0, l.getClass().getTypeName() + " is a List");
+		l.set(1, "java is fun!");
+		Tool.print(l.get(0));
+		Tool.print(l.get(1));
+	}
+}

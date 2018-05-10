@@ -1,0 +1,9 @@
+package function;
+
+import java.util.function.Function;
+
+public class FunctionTest {
+	public static void main (String[] args) {
+		Function<Integer, Double> f1 = t -> Math.sqrt(t);
+	}
+}

@@ -1,0 +1,18 @@
+package thinkInJava.chapter2;
+
+import java.net.Proxy.Type;
+
+/** 这是第一个Java程序。
+ * 打印Hello World语句。
+ * @author liwenbao
+ *
+ */
+public class Exercise1 {
+	/** 程序入口方法。
+	 * 打印Hello World语句。
+	 * @param args 这是程序启动参数列表。
+	 */
+	public static void main(String[] args) {
+		System.out.println("Hello World !");
+	}
+}

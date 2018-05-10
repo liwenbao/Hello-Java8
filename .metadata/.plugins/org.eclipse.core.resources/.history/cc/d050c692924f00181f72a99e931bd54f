@@ -1,0 +1,9 @@
+package designpattern;
+
+public class DecoratorPattern {
+
+}
+
+interface Picture{
+	void draw();
+}

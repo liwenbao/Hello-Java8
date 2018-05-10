@@ -1,0 +1,13 @@
+package function;
+
+public class ConsumerTest {
+	public static void main(String[] args) {
+		Consumer<>
+	}
+}
+
+class Obj {
+	void output(String s) {
+		System.out.println(s);
+	}
+}

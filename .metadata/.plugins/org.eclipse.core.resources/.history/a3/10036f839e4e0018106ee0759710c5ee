@@ -1,0 +1,17 @@
+package collections;
+
+import java.util.*;
+
+public class QuickSort {
+
+}
+
+class SortedList<T> extends ArrayList<T>{
+	public void quickSort(Comparator<T> comp) {
+		
+	}
+	
+	private void doQuickSort(int left, int right, Comparator<T> comp) {
+		
+	}
+}

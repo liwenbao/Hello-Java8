@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<server port="8080">
+  <module context="HelloJavaWeb" name="HelloJavaWeb" path="D:/Project.Java/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/HelloJavaWeb" type="j2ee"/>
+</server>

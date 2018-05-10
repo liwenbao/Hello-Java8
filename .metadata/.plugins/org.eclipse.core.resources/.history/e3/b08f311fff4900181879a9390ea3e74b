@@ -1,0 +1,11 @@
+package thinkInJava.chapter4;
+
+public class Exercise1 {
+
+}
+
+class ClassA{
+	public ClassA() {
+		System.out.println("创建了一个ClassA的对象。");
+	}
+}

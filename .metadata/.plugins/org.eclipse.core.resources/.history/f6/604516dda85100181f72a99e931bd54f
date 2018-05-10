@@ -1,0 +1,9 @@
+package designpattern;
+
+/*
+ * 享元模式，即最轻量级模式
+ * 对于大量重复出现的对象，将部分状态分离到对象之外，从而共享对象，以节省内存开销。
+ */
+public class Flyweight {
+	
+}

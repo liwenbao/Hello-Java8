@@ -1,0 +1,19 @@
+package thinkInJava.chapter4;
+
+public class Exercise1 {
+	public static void main(String[] args) {
+		ClassA a;
+		a = new ClassA();
+		a = new ClassA("abc");
+	}
+}
+
+class ClassA{
+	public ClassA() {
+		System.out.println("创建了一个ClassA的对象。");
+	}
+	
+	public ClassA(String s) {
+		System.out.println("创建了一个ClassA的对象。使用参数" + s);
+	}
+}

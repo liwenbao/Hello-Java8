@@ -1,0 +1,71 @@
+package designpattern;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+/*
+ * 过滤器模式
+ */
+public class FilterPattern {
+	public static void main(String[] args) {
+		HttpRequestRouter router = new HttpRequestRouter();
+		router.RegisterFilter(req -> req.getuID().startsWith("u"));
+		router.RegisterFilter(req -> req.getAppID().startsWith("a"));
+		router.RegisterFilter(req -> req.getTimeStamp() <= System.currentTimeMillis() - 1000 * 10);
+		
+		HttpRequest r = new HttpRequest();
+		r.setuID("u1");
+		r.setAppID("a1");
+		r.setTimeStamp(System.currentTimeMillis());
+		router.RouteRequest(r);
+	}
+}
+
+class HttpRequest{
+	private String uID;
+	private String appID;
+	private long timeStamp;
+	
+	public String getuID() {
+		return uID;
+	}
+	public void setuID(String uID) {
+		this.uID = uID;
+	}
+	public String getAppID() {
+		return appID;
+	}
+	public void setAppID(String appID) {
+		this.appID = appID;
+	}
+	public long getTimeStamp() {
+		return timeStamp;
+	}
+	public void setTimeStamp(long timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+	public String toString() {
+		return String.format("uID:{0};appID:{1};timeStamp:{2};", this.uID, this.appID, this.timeStamp);
+	}
+}
+
+interface HttpRequestFilter{
+	boolean Filter(HttpRequest r);
+}
+
+class HttpRequestRouter{
+	private ArrayList<HttpRequestFilter> filters;
+	
+	public void RegisterFilter(HttpRequestFilter filter) {
+		if (filters == null)
+			filters = new ArrayList<HttpRequestFilter>();
+		filters.add(filter);
+	}
+	
+	public void RouteRequest(HttpRequest r) {
+		if (filters.stream().anyMatch(f->!f.Filter(r))){
+			return;
+		}
+		System.out.println("路由请求 " + r);
+	}
+}

@@ -1,0 +1,9 @@
+package function;
+
+import java.util.function.Function;
+
+public class FunctionTest {
+	public static void main (String[] args) {
+		Function<Integer, Long> f1 = t -> t.toString();
+	}
+}

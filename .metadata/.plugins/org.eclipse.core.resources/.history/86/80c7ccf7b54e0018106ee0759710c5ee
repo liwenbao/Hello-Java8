@@ -1,0 +1,12 @@
+/*
+ * 抽象工厂模式
+ */
+package designpattern;
+
+public class AbstractFactoryPattern {
+
+}
+
+abstract class FileOperator{
+	abstract boolean CreateFile()
+}

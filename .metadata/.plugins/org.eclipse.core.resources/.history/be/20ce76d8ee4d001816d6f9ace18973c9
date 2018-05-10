@@ -1,0 +1,9 @@
+package collections;
+import java.util.*;
+import thinkInJava.tool.*;
+
+public class ListTest {
+	void useList(List<String> l) {
+		l.set(0, l.getClass().getTypeName() + " is a List") ;
+	}
+}

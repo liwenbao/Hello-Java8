@@ -1,0 +1,14 @@
+package collections;
+
+public class CollectionTest {
+	public static void main(String[] args) {
+		Collection c
+		java.util.Vector<String> v = new java.util.Vector<String>();
+		useCollection(v);
+		
+	}
+	
+	void useCollection(java.util.Collection<String> c) {
+		
+	}
+}

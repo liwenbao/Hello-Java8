@@ -1,0 +1,13 @@
+package function;
+
+public class ConsumerTest {
+	public static void main(String[] args) {
+		Consumer<Obj> c1 = o -> o.
+	}
+}
+
+class Obj {
+	public void output(String s) {
+		System.out.println(s);
+	}
+}

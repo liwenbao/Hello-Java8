@@ -1,0 +1,8 @@
+package designpattern;
+
+/*
+ * µ¥ÀıÄ£Ê½
+ */
+public class SingletonPattern {
+
+}

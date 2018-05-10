@@ -1,0 +1,23 @@
+package designpattern;
+
+/*
+ * ге╫сдёй╫
+ */
+public class BridgePattern {
+
+}
+
+interface DataAccessor{
+	void readData();
+	void writeData();
+}
+
+interface FormulaSyntax{
+	void Parse();
+}
+
+abstract class CalculateNet{
+	protected DataAccessor dataAccess;
+	protected FormulaSyntax formulaSyntax;
+	abstract void Calc();
+}

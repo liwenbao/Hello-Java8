@@ -1,0 +1,104 @@
+package designpattern;
+
+import java.util.Arrays;
+import java.util.concurrent.ConcurrentHashMap;
+
+/*
+ * 享元模式，即最轻量级模式
+ * 对于大量重复出现的对象，将部分状态分离到对象之外，从而共享对象，以节省内存开销。
+ * 使用场景：公式语法树中的函数对象。
+ */
+public class Flyweight {
+	public static void main(String[] args) throws Exception {
+		for (int i = 0; i < 5; i++) {
+			new FunctionNode("abs", new DataNode(-1d)).calc();
+			new FunctionNode("max", new DataNode(-1d), new DataNode(-0.5d)).calc();
+		}
+		
+	}
+}
+
+interface Function{
+	String getName();
+	String getDecription();
+	Object calc(Object...args);
+}
+
+class FunctionFactory{
+	
+	static ConcurrentHashMap<String, Function> FUNCTIONS = new ConcurrentHashMap<String, Function>();
+	
+	static Function getFunction(String funcName) throws Exception {
+		Function oldFunc = FUNCTIONS.get(funcName);
+		if (oldFunc == null) {
+			Function newFunc = createFunciton(funcName);
+			//使用putIfAbsent严格保证每个函数类型只使用同一个对象。（哪怕创建了多个对象。）
+			oldFunc = FUNCTIONS.putIfAbsent(funcName, newFunc);
+			if (oldFunc == null) {
+				oldFunc = newFunc;
+			}
+		}
+		System.out.println(funcName + "： " + oldFunc);
+		return oldFunc;
+	}
+	
+	private static Function createFunciton(String funcName) throws Exception {
+		switch (funcName) {
+		case "abs":
+			return new Abs();
+		case "max":
+			return new Max();
+		default:
+			throw new Exception("unkown function name: " + funcName);
+		}
+	}
+}
+
+class FunctionNode implements CalcNode{
+
+	private Function function;
+	
+	private CalcNode[] args;
+
+	public FunctionNode(String funcName, CalcNode...args) throws Exception {
+		function = FunctionFactory.getFunction(funcName);
+		this.args = args;
+	}
+	
+	@Override
+	public Object calc() {
+		return function.calc((Arrays.asList(this.args)).stream().map(n -> n.calc()).toArray());
+	}
+	
+}
+
+class Abs implements Function {
+	
+	@Override
+	public Object calc(Object...args) {
+		double args0 = (double)args[0];
+		return Math.abs(args0);
+	}
+
+	@Override
+	public String getName() {
+		return "abs";
+	}
+	
+}
+
+class Max implements Function {
+	
+	@Override
+	public Object calc(Object...args) {
+		double args0 = (double)args[0];
+		double args1 = (double)args[1];
+		return Math.max(args0, args1);
+	}
+
+	@Override
+	public String getName() {
+		return "max";
+	}
+	
+}

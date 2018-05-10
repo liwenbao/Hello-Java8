@@ -1,0 +1,43 @@
+package designpattern;
+
+/*
+ * ге╫сдёй╫
+ */
+public class BridgePattern {
+
+}
+
+interface DataAccessor{
+	void readData();
+	void writeData();
+}
+
+interface FormulaSyntax{
+	void Parse();
+}
+
+abstract class FormulaNet{
+	protected DataAccessor dataAccess;
+	protected FormulaSyntax formulaSyntax;
+	abstract void Calc();
+}
+
+class TreeFormulaNet extends FormulaNet{
+
+	@Override
+	void Calc() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+
+class ArrayFormulaNet extends FormulaNet{
+
+	@Override
+	void Calc() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

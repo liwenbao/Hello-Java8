@@ -1,0 +1,8 @@
+1525252400007	Rename type 'Vector'
+1525252460192	Rename compilation unit 'Collection.java'
+1525352031456	Encapsulate field 'headers'
+1525352043562	Encapsulate field 'footer'
+1525352054474	Encapsulate field 'background'
+1525405300316	Encapsulate field 'uID'
+1525405305618	Encapsulate field 'appID'
+1525405313796	Encapsulate field 'timeStamp'

@@ -1,0 +1,76 @@
+package designpattern;
+
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.stream.Collectors;
+
+import javax.swing.event.ListSelectionEvent;
+
+/*
+ * 组合模式。是一个I并且包含很多I。多用来表示整体和部分的层次，形成树状关系。
+ */
+public class CompositePattern {
+
+}
+
+interface CalcNode {
+	Object calc();
+}
+
+class DataNode implements CalcNode{
+	
+	private Object val;
+	
+	public void setVal(Object val) {
+		this.val = val;
+	}
+	
+	@Override
+	public Object calc() {
+		return val;
+	}
+}
+
+class OperationNode implements CalcNode{
+	
+	private Operation operation;
+	
+	private ArrayList<CalcNode> arguments;
+	
+	public OperationNode(Operation op) {
+		this.operation = op;
+	}
+	
+	public void setArgs(CalcNode...args) {
+		if (this.arguments == null)
+			this.arguments = new ArrayList<CalcNode>();
+		Collections.addAll(this.arguments, args);
+	}
+	
+	@Override
+	public Object calc() {
+		return operation.Operate(this.arguments.stream().map(CalcNode::calc).collect(Collectors.toList()));
+	}
+	
+	protected 
+	
+}
+
+interface Operation{
+	Object Operate(Object...args);
+}
+
+class Expression implements CalcNode{
+	
+	private ArrayList<CalcNode> nodes;
+
+	@Override
+	public Object calc() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+

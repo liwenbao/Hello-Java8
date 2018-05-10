@@ -1,0 +1,16 @@
+package thinkInJava.chapter4;
+
+/** Exercise3类用于测试java文档注释。
+ * 罗列系统运行属性。
+ * @author liwenbao
+ * @version 1.0
+ */
+public class Exercise3 {
+	/** 这里是main方法的注释
+	 * 打印系统运行属性。
+	 * @param args 启动参数列表
+	 */
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,104 @@
+package designpattern;
+
+/*
+ * 创建器模式
+ */
+public class BuilderPattern {
+	public static void main(String[] args) {
+		ThemeBuilder builder = new SpringThemeBuilder();
+		Director director = new Director();
+		director.BuildTheme(builder);
+		Theme theme = builder.GetTheme();
+		
+	}
+}
+
+/*
+ * 一个复杂的产品，也是最终的创建目标。由相对固定的多个复杂部分构成。
+ * 创建该产品需要创建产品的各个组成部分。
+ */
+class Theme{
+	private String headers;
+	private String background;
+	private String footer;
+	
+	public String getHeaders() {
+		return headers;
+	}
+	
+	public void setHeaders(String headers) {
+		this.headers = headers;
+	}
+
+	public String getBackground() {
+		return background;
+	}
+	
+	public void setBackground(String background) {
+		this.background = background;
+	}
+	
+	public String getFooter() {
+		return footer;
+	}
+	
+	public void setFooter(String footer) {
+		this.footer = footer;
+	}
+	
+	public String toString() {
+		return "Headers:" + this.getHeaders() + " Background:" + this.getBackground() +  " Footer" + this.getFooter();
+	}
+}
+
+/*
+ * 抽象的创建器，声明创建细节。
+ */
+abstract class ThemeBuilder{
+	
+	protected Theme theme = new Theme();
+	
+	abstract void buildHeaders();
+	
+	abstract void buildBackGround();
+	
+	abstract void buildFooter();
+	
+	public Theme GetTheme() {
+		return theme;
+	}
+}
+
+/*
+ * 指挥者。使用一个创建器的实例，调度创建过程。而不关注具体各部分的创建细节。
+ */
+class Director {
+	public Theme BuildTheme(ThemeBuilder builder) {
+		builder.buildHeaders();
+		builder.buildBackGround();
+		builder.buildFooter();
+		return builder.GetTheme();
+	}
+}
+
+/*
+ * 具体的创建器。实现各个部分的创建细节。
+ * 扩展不同的创建器实现，可以在创建调度不变的情况下改变创建细节，从而构建不同的产品。
+ */
+class SpringThemeBuilder extends ThemeBuilder{
+
+	@Override
+	void buildHeaders() {
+		theme.setHeaders("春天主题页头");
+	}
+
+	@Override
+	void buildBackGround() {
+		theme.setHeaders("春天主题背景");
+	}
+
+	@Override
+	void buildFooter() {
+		theme.setHeaders("春天主题页脚");
+	}
+}

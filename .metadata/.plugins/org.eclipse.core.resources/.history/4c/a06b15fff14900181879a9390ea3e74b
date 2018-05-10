@@ -1,0 +1,12 @@
+package thinkInJava.chapter2;
+
+/**
+ * 这是第一个Java程序。
+ * @author liwenbao
+ *
+ */
+public class Exercise1 {
+	public static void main(String[] args) {
+		System.out.println("Hellow World !");
+	}
+}

@@ -1,0 +1,35 @@
+package thinkInJava.chapter4;
+
+public class Exercise5 {
+	public static void main(String[] args) {
+		
+	}
+}
+
+class Chair{
+	static boolean gcrun = false , f = false;
+	static int created = 0 , finalized = 0;
+	int id;
+	
+	Chair(){
+		id = ++created;
+		if (id == 47) {
+			System.out.println("创建了第47个对象。");
+		}
+	}
+	
+	protected void finalize() {
+		if (!gcrun) {
+			gcrun = true;
+			System.out.println("开始进行对象回收，此时创建了" + created + "个对象。");
+		}
+		if (id == 47) {
+			f = true;
+			System.out.println("回收第47个对象，停止创建。");
+		}
+		finalized ++;
+		if (finalized >= created) {
+			System.out.println("所有对象均被回收。");
+		}
+	}
+}

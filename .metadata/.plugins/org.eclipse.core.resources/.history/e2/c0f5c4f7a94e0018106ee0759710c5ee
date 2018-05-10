@@ -1,0 +1,21 @@
+package designpattern;
+
+import java.io.*;
+
+public class FactoryPattern {
+
+}
+
+interface Logger{
+	void Log(String txt) throws IOException;
+}
+
+class FileLogger implements Logger{
+
+	@Override
+	public void Log(String txt) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("log content into file");
+	}
+	
+}

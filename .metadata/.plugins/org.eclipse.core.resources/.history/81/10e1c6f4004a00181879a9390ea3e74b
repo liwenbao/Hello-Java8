@@ -1,0 +1,11 @@
+package thinkInJava.chapter4;
+
+public class Exercise5 {
+
+}
+
+class Chair{
+	static boolean gcrun = false;
+	static boolean f = false;
+	static int created = 0 , finalized = 0;
+}

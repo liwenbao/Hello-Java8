@@ -1,0 +1,22 @@
+package function;
+
+import java.util.function.Consumer;
+
+public class ConsumerTest {
+	public static void main(String[] args) {
+		Consumer<Obj> c1 = o -> o.output();
+	}
+}
+
+class Obj {
+	private int id;
+	private String name;
+	
+	public Obj(int id, String name) {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void output() {
+		System.out.println(this.toString());
+	}
+}

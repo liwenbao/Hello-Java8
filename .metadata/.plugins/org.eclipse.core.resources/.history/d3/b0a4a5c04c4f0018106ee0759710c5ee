@@ -1,0 +1,15 @@
+package designpattern;
+
+/*
+ * ¹ýÂËÆ÷Ä£Ê½
+ */
+public class FilterPattern {
+	public static void main(String[] args) {
+		HttpServletRequest s;
+	}
+}
+
+class HttpRequest{
+	private String uID;
+	private String appID
+}

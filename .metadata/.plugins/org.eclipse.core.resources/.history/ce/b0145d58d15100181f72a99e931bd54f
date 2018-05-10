@@ -1,0 +1,84 @@
+package designpattern;
+
+import java.util.Random;
+
+/*
+ * 职责链模式
+ * 将一些列相同接口的实现组成链表，当一个对象不能处理请求时提交给下一个对象处理。
+ * 适用场景：词性标注器（三元、二元、简单标准组成链表）；语法解析器（解析为不同的语法对象）
+ */
+public class ResponsibilityChainPattern {
+	public static void main(String[] args) {
+		Parser parser = new ParserData(new ParserOperation(new ParserFunction(null)));
+	}
+}
+
+interface Parser{
+	CalcNode parseAsNode();
+}
+
+class ParserFunction implements Parser{
+	
+	private Parser next;
+	
+	public ParserFunction(Parser next) {
+		this.next = next;
+	}
+
+	@Override
+	public CalcNode parseAsNode() {
+		if (new Random().nextInt(2) == 1) {
+			System.out.println("ParserFunction 解析函数成功。");
+			return null;
+		}
+		if (this.next != null) {
+			return this.next.parseAsNode();
+		}
+		return null;
+	}
+	
+}
+
+class ParserOperation implements Parser{
+	
+	private Parser next;
+	
+	public ParserOperation(Parser next) {
+		this.next = next;
+	}
+
+	@Override
+	public CalcNode parseAsNode() {
+		if (new Random().nextInt(2) == 1) {
+			System.out.println("ParserOperation 解析操作符成功。");
+			return null;
+		}
+		if (this.next != null) {
+			return this.next.parseAsNode();
+		}
+		return null;
+	}
+	
+}
+
+class ParserData implements Parser{
+	
+	private Parser next;
+	
+	public ParserData(Parser next) {
+		this.next = next;
+	}
+
+	@Override
+	public CalcNode parseAsNode() {
+		if (new Random().nextInt(2) == 1) {
+			System.out.println("ParserData 解析数据节点成功。");
+			return null;
+		}
+		if (this.next != null) {
+			return this.next.parseAsNode();
+		}
+		return null;
+	}
+	
+}

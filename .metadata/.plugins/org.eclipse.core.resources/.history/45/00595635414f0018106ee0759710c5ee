@@ -1,0 +1,41 @@
+package designpattern;
+
+/*
+ * 适配器模式
+ */
+public class AdatperPattern {
+
+}
+
+class Voltage220{
+	public void output() {
+		System.out.println("输出220V电压。");
+	}
+}
+
+interface Voltage5{
+	void output();
+}
+
+class Moblie{
+	void charge(Voltage5 vol) {
+		vol.output();
+		System.out.println("开始使用5V电压充电。");
+	}
+}
+
+class Voltage5Adapter implements Voltage5{
+	
+	private Voltage220 vol220;
+	
+	Voltage5Adapter(Voltage220 vol){
+		this.vol220 = vol;
+	}
+
+	@Override
+	public void output() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

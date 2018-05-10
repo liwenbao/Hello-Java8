@@ -1,0 +1,32 @@
+/*
+ * 抽象工厂模式
+ */
+package designpattern;
+
+public class AbstractFactoryPattern {
+
+}
+
+/*
+ * Product A
+ */
+abstract class FileOperator{
+	abstract boolean CreateFile(String path);
+}
+
+/*
+ * Product B
+ */
+abstract class DirectoryOperator{
+	abstract boolean CreateDirectory(String path);
+}
+
+/*
+ * Abstract Factory
+ */
+abstract class IOOperatorFactory{
+	
+	abstract FileOperator CreateFileOperator();
+
+	abstract DirectoryOperator CreateDirectoryOperator();
+}

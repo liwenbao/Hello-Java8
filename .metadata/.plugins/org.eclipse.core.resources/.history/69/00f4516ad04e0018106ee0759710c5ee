@@ -1,0 +1,38 @@
+package designpattern;
+
+/*
+ * 创建器模式
+ */
+public class BuilderPattern {
+	
+}
+
+abstract class ThemeBuilder{
+	
+	abstract void buildHeaders();
+	
+	abstract void buildBackGround();
+	
+	abstract void buildFooter();
+}
+
+class SpringThemeBuilder extends ThemeBuilder{
+
+	@Override
+	void buildHeaders() {
+		System.out.println("构建页头");
+	}
+
+	@Override
+	void buildBackGround() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void buildFooter() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

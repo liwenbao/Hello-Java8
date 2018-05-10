@@ -1,0 +1,25 @@
+package collections;
+import java.util.*;
+import thinkInJava.tool.*;
+
+public class CollectionTest {
+	public static void main(String[] args) {
+		CollectionTest ct = new CollectionTest();
+		ct.useCollection(new Vector<String>());
+		ct.useCollection(new ArrayList<String>());
+		ct.useCollection(new LinkedList<String>());
+		ct.useCollection(new HashSet<String>());
+	}
+	
+	final String[] sent = {" Java"," is"," fun!"};
+	
+	void useCollection(java.util.Collection<String> c) {
+		c.add(c.getClass().getTypeName());
+		c.addAll(Arrays.asList(sent));
+		Iterator<String> i = c.iterator();
+		while(i.hasNext()) {
+			Tool.print(i.next());
+		}
+		Tool.println("");
+	}
+}

@@ -1,0 +1,84 @@
+package designpattern;
+
+/*
+ * 桥接模式
+ */
+public class BridgePattern {
+
+}
+
+interface DataAccessor{
+	void readData();
+	void writeData();
+}
+
+interface FormulaSyntax{
+	void Parse();
+}
+
+abstract class FormulaNet{
+	protected DataAccessor dataAccess;
+	protected FormulaSyntax formulaSyntax;
+	abstract void Calc();
+}
+
+class TreeFormulaNet extends FormulaNet{
+
+	@Override
+	void Calc() {
+		formulaSyntax.Parse();
+		dataAccess.readData();
+		System.out.println("Tree公式网络进行运行。");
+		dataAccess.writeData();
+	}
+	
+}
+
+class ArrayFormulaNet extends FormulaNet{
+
+	@Override
+	void Calc() {
+		formulaSyntax.Parse();
+		dataAccess.readData();
+		System.out.println("Array公式网络进行运行。");
+		dataAccess.writeData();
+	}
+	
+}
+
+class DBDataAccessor implements DataAccessor{
+
+	@Override
+	public void readData() {
+		System.out.println("DB数据访问器读取数据。");
+	}
+
+	@Override
+	public void writeData() {
+		System.out.println("DB数据访问器回写数据。");
+	}
+	
+}
+
+class FileDataAccessor implements DataAccessor{
+
+	@Override
+	public void readData() {
+		System.out.println("File数据访问器读取数据。");
+	}
+
+	@Override
+	public void writeData() {
+		System.out.println("File数据访问器回写数据。");
+	}
+	
+}
+
+class JQFormulaSyntax implements FormulaSyntax{
+
+	@Override
+	public void Parse() {
+		System.out.println("File数据访问器回写数据。");
+	}
+	
+}

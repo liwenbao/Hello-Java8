@@ -1,0 +1,63 @@
+/*
+ * 抽象工厂模式
+ */
+package designpattern;
+
+public class AbstractFactoryPattern {
+
+}
+
+/*
+ * Product A
+ */
+abstract class FileOperator{
+	abstract void CreateFile(String path);
+}
+
+class WindowsFileOperator extends FileOperator{
+
+	@Override
+	void CreateFile(String path) {
+		System.out.println("create file in windows.");
+	}
+	
+}
+
+class UnixFileOperator extends FileOperator{
+
+	@Override
+	void CreateFile(String path) {
+		System.out.println("create file in unix/linux.");
+	}
+	
+}
+
+/*
+ * Product B
+ */
+abstract class DirectoryOperator{
+	abstract void CreateDirectory(String path);
+}
+
+class WindowsDirectoryOperator extends DirectoryOperator{
+
+	@Override
+	void CreateDirectory(String path) {
+		return false;
+	}
+	
+}
+
+/*
+ * Abstract Factory
+ */
+abstract class IOOperatorFactory{
+	
+	abstract FileOperator CreateFileOperator();
+
+	abstract DirectoryOperator CreateDirectoryOperator();
+}
+
+
+
+

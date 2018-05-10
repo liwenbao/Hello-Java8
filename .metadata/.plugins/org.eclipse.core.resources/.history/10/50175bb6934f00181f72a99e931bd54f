@@ -1,0 +1,74 @@
+package designpattern;
+
+public class DecoratorPattern {
+
+}
+
+interface Picture{
+	void draw();
+}
+
+class NormalPicture implements Picture{
+
+	@Override
+	public void draw() {
+		System.out.println("»æÖÆÍ¼Æ¬");
+	}
+	
+}
+
+class FramedPicture implements Picture{
+	
+	private Picture innerPicture;
+	private String color;
+	private String width;
+	
+	public FramedPicture(Picture inner, String color, String width) {
+		this.innerPicture = inner;
+		this.color = color;
+		this.width = width;
+	}
+
+	@Override
+	public void draw() {
+		this.innerPicture.draw();
+		System.out.println("Ìí¼Ó±ß¿ò:color:" + this.color + ";width:" + this.width);
+	}
+	
+}
+
+class CuttedPicture implements Picture{
+	
+	private Picture innerPicture;
+	private float precent;
+	
+	public CuttedPicture(Picture inner, float precent) {
+		this.innerPicture = inner;
+		this.precent = precent;
+	}
+
+	@Override
+	public void draw() {
+		this.innerPicture.draw();
+		System.out.println("²Ã¼ôÍ¼Æ¬:precent:" + this.precent);
+	}
+	
+}
+
+class graiedPicture implements Picture{
+	
+	private Picture innerPicture;
+	private float precent;
+	
+	public CuttedPicture(Picture inner, float precent) {
+		this.innerPicture = inner;
+		this.precent = precent;
+	}
+
+	@Override
+	public void draw() {
+		this.innerPicture.draw();
+		System.out.println("²Ã¼ôÍ¼Æ¬:precent:" + this.precent);
+	}
+	
+}

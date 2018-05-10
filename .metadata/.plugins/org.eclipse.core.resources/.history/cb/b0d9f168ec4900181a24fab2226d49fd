@@ -1,0 +1,10 @@
+package thinkInJava.chapter4;
+
+/** Exercise3类用于测试java文档注释。
+ * 罗列系统运行属性。
+ * @author liwenbao
+ * @version 1.0
+ */
+public class Exercise3 {
+	
+}

@@ -1,0 +1,11 @@
+package designpattern;
+
+import java.io.*;
+
+public class FactoryPattern {
+
+}
+
+interface Logger{
+	void Log(String txt) throws IOException;
+}

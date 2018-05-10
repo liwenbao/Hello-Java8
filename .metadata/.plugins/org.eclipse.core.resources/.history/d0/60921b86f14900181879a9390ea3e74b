@@ -1,0 +1,22 @@
+package thinkInJava.chapter2;
+
+import java.util.Properties;
+
+/** Exercise3 class description.
+ * function of class Exercise3。
+ * @author liwenbao
+ * @version 1.0
+ */
+public class Exercise3 {
+	/** main method description.
+	 * function of method main.
+	 * @param args 启动参数列表
+	 */
+	public static void main(String[] args) {
+		System.out.println(new java.util.Date());
+		Properties p = System.getProperties();
+		p.list(System.out);
+		Runtime r = Runtime.getRuntime();
+		System.out.println("totle memory: " + r.totalMemory() + ", free memory: " + r.freeMemory());
+	}
+}

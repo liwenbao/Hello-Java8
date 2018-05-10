@@ -1,0 +1,32 @@
+package designpattern;
+
+/*
+ * µ¥ÀýÄ£Ê½
+ */
+public class SingletonPattern {
+
+}
+
+class Singleton1{
+	
+	private static Singleton1 instance = new Singleton1();
+	
+	private Singleton1() {}
+	
+	public Singleton1 getInstance() {
+		return instance;
+	}
+}
+
+class Singleton2{
+	
+	private class Singleton2Holder {
+		private static final Singleton2 Instence = new Singleton2();
+	}
+	
+	private Singleton2() {}
+	
+	public Singleton2 getInstance() {
+		return instance;
+	}
+}

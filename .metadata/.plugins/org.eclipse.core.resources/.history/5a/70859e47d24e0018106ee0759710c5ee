@@ -1,0 +1,87 @@
+package designpattern;
+
+/*
+ * 创建器模式
+ */
+public class BuilderPattern {
+	
+}
+
+/*
+ * 一个复杂的产品，也是最终的创建目标。由相对固定的多个复杂部分构成。
+ * 创建该产品需要创建产品的各个组成部分。
+ */
+class Theme{
+	private String headers;
+	private String background;
+	private String footer;
+	
+	public String getHeaders() {
+		return headers;
+	}
+	
+	public void setHeaders(String headers) {
+		this.headers = headers;
+	}
+
+	public String getBackground() {
+		return background;
+	}
+	
+	public void setBackground(String background) {
+		this.background = background;
+	}
+	
+	public String getFooter() {
+		return footer;
+	}
+	
+	public void setFooter(String footer) {
+		this.footer = footer;
+	}
+}
+
+/*
+ * 抽象的创建器，声明创建细节。
+ */
+abstract class ThemeBuilder{
+	
+	protected Theme theme = new Theme();
+	
+	abstract void buildHeaders();
+	
+	abstract void buildBackGround();
+	
+	abstract void buildFooter();
+	
+	public Theme GetTheme() {
+		return theme;
+	}
+}
+
+class Director {
+	public static Theme BuildTheme(ThemeBuilder builder) {
+		builder.buildHeaders();
+		builder.buildBackGround();
+		builder.buildFooter();
+		return builder.GetTheme();
+	}
+}
+
+class SpringThemeBuilder extends ThemeBuilder{
+
+	@Override
+	void buildHeaders() {
+		theme.setHeaders("春天主题页头");
+	}
+
+	@Override
+	void buildBackGround() {
+		theme.setHeaders("春天主题背景");
+	}
+
+	@Override
+	void buildFooter() {
+		theme.setHeaders("春天主题页脚");
+	}
+}

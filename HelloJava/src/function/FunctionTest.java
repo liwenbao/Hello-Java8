@@ -1,0 +1,26 @@
+package function;
+
+import java.util.function.Function;
+
+public class FunctionTest {
+	public static void main (String[] args) {
+		Function<Double, Double> f1 = t -> Math.sqrt(t);
+		System.out.println("f1.apply(1) = " + f1.apply(1d));
+		System.out.println("f1.apply(2) = " + f1.apply(2d));
+		System.out.println("f1.apply(4) = " + f1.apply(4d));
+
+		Function<Double, Double> f2 = t -> t + 1;
+		System.out.println("f2.apply(1) = " + f2.apply(1d));
+		
+		Function<Double, Double> f3 = f1.andThen(f2);
+		System.out.println("f3.apply(1) = " + f3.apply(1d));
+		System.out.println("f3.apply(4) = " + f3.apply(4d));
+		
+		Function<Double, Double> f4 = f1.compose(f2);
+		System.out.println("f4.apply(1) = " + f4.apply(1d));
+		System.out.println("f4.apply(4) = " + f4.apply(4d));
+
+		Function<Double, Double> f5 = Function.identity();
+		System.out.println("f5.apply(PI) = " + f5.apply(Math.PI));
+	}
+}

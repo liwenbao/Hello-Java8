@@ -1,0 +1,32 @@
+package collections;
+
+import java.util.*;
+
+public class QuickSort {
+
+}
+
+class SortedList<T> extends ArrayList<T>{
+	
+	public void quickSort(Comparator<T> comp) {
+		doQuickSort(0, size() - 1, comp);
+	}
+	
+	private void doQuickSort(int left, int right, Comparator<T> comp) {
+		T o = this.get(right);
+		int i = left - 1, j = right;
+		while (comp.compare(this.get(++i), o) < 0);
+		while (j > 0) {
+			if (comp.compare(this.get(--j), o) <= 0)
+				break;
+		}
+	}
+	
+	private void swap(int i, int j) {
+		if (i == j)
+			return;
+		T temp = this.get(i);
+		this.set(i, this.get(j));
+		this.set(j, temp);
+	}
+}

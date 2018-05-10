@@ -1,0 +1,8 @@
+package designpattern;
+
+/*
+ * 享元模式，即最轻量级模式
+ */
+public class Flyweight {
+
+}

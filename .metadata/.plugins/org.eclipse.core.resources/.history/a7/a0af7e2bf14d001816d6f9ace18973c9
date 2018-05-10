@@ -1,0 +1,21 @@
+package collections;
+
+import java.util.*;
+
+import thinkInJava.tool.Tool;
+
+public class MapTest {
+	public static void main(String[] args) {
+		MapTest mt= new MapTest();
+		mt.useMap(new ArrayList<String>());
+		mt.useMap(new LinkedList<String>());
+	}
+	
+	void useMap(Map<String, String> l) {
+		l.put("0", l.getClass().getTypeName() + " is a List");
+		l.put("1", "java is fun!");
+		Tool.print(l.get(0));
+		Tool.print(l.get(1));
+		Tool.println("");
+	}
+}

@@ -1,0 +1,56 @@
+package designpattern;
+
+import java.io.*;
+
+public class FactoryPattern {
+
+}
+
+interface Logger{
+	void Log(String txt) throws IOException;
+}
+
+final class LoggerFactory{
+	Logger CreateLogger(String loggerType) throws Exception{
+		switch (loggerType) {
+			case "FileLogger":
+				return new FileLogger();
+			case "DataBaseLogger":
+				return new DataBaseLogger();
+			case "ServiceLogger":
+				return new ServiceLogger();
+			default:
+				throw new Exception("unknow logger type.");
+		}
+	}
+}
+
+class FileLogger implements Logger{
+
+	@Override
+	public void Log(String txt) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("log content into file");
+	}
+	
+}
+
+class DataBaseLogger implements Logger{
+
+	@Override
+	public void Log(String txt) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("log content into DB");
+	}
+	
+}
+
+class ServiceLogger implements Logger{
+
+	@Override
+	public void Log(String txt) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("log content into remote service");
+	}
+	
+}
