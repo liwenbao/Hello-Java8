@@ -232,3 +232,6 @@ Caused by: java.net.UnknownHostException: git.eclipse.org
 	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:500) ~[org.eclipse.jgit_4.9.2.201712150930-r.jar:4.9.2.201712150930-r]
 	... 9 common frames omitted
 2018-05-04 16:36:48,872 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-05-14 11:11:06,630 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-05-14 11:38:31,526 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-16 10:23:12,656 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

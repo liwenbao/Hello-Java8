@@ -1,5 +1,6 @@
 package function;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class FunctionTest {
@@ -22,5 +23,9 @@ public class FunctionTest {
 
 		Function<Double, Double> f5 = Function.identity();
 		System.out.println("f5.apply(PI) = " + f5.apply(Math.PI));
+		
+		BiFunction<Double, Float, Integer> bf1 = (a, b) -> (int) (a+b);
+		System.out.println("bf1.apply(4.5d, -1.1f) = " + bf1.apply(4.5d, -1.1f));
+		
 	}
 }
